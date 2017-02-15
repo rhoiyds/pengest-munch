@@ -24,27 +24,40 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('main.js').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
   </head>
 
   <body style="">
     <div class="navmenu navmenu-default navmenu-fixed-left">
-      <a class="navmenu-brand" href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#">Project name</a>
+      <a class="navmenu-brand" href="#">Pengest Munch</a>
       <ul class="nav navmenu-nav">
-        <li><a href="http://www.jasny.net/bootstrap/examples/navmenu/">Slide in</a></li>
-        <li><a href="http://www.jasny.net/bootstrap/examples/navmenu-push/">Push</a></li>
-        <li class="active"><a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/">Reveal</a></li>
-        <li><a href="http://www.jasny.net/bootstrap/examples/navbar-offcanvas/">Off canvas navbar</a></li>
+        <li><a href="h#">Slide in</a></li>
+        <li><a href="#">Push</a></li>
+        <li class="active"><a href="#">Reveal</a></li>
+        <li><a href="#">Off canvas navbar</a></li>
       </ul>
       <ul class="nav navmenu-nav">
-        <li><a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#">Link</a></li>
-        <li><a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#">Link</a></li>
-        <li><a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
           <ul class="dropdown-menu navmenu-nav">
-            <li><a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#">Action</a></li>
-            <li><a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#">Another action</a></li>
-            <li><a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#">Something else here</a></li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#"Something else here</a></li>
             <li class="divider"></li>
             <li class="dropdown-header">Nav header</li>
             <li><a href="http://www.jasny.net/bootstrap/examples/navmenu-reveal/#">Separated link</a></li>
@@ -83,6 +96,9 @@
             <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIqSkFTvCEG40YwJeoeXSDtzAl8gbW5RU&callback=initMap">
             </script>
+
+            <my-app>Loading AppComponent content here ...</my-app>
+
       </div><!-- /.container -->
 
 
