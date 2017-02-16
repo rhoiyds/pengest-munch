@@ -39,3 +39,11 @@ html, body {
     padding: 0;
   }
 }
+
+#map {
+  height: 100%;
+  width: 100%;
+  position: initial !important;
+  overflow: hidden;
+  z-index:-1;
+}
