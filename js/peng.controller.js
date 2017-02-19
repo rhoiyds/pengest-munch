@@ -53,11 +53,11 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
                 position: new google.maps.LatLng(review.location.latitude, review.location.longitude),
                 title: review.name
             });
-            marker.content = '<div class="infoWindowContent">' + review.name + '<br />' + review.location.latitiude + ' E,' + review.location.longitude+  ' N, </div>';
+            marker.content = '<div class="infoWindowContent">' + review.name + '<br />' + review.location.latitude + ' E,' + review.location.longitude+  ' N, </div>';
 
             google.maps.event.addListener(marker, 'click', function(){
-                infoWindow.setContent('<h2>' + marker.title + '</h2>' +
-                  marker.content);
+                $scope.map.setCenter(marker.getPosition());
+                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                 infoWindow.open($scope.map, marker);
             });
 
@@ -66,7 +66,7 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
         }
 
          $scope.selectMarker = function(review) {
-          console.log("Clickd");
+          $scope.map.setCenter(review.marker.getPosition());
           infoWindow.setContent('<h2>' + review.marker.title + '</h2>' + review.marker.content);
           infoWindow.open($scope.map, review.marker);
         }
