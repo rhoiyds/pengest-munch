@@ -15,7 +15,7 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
             rating: {
               burger: 3,
               chips: 4.7,
-              wing: 1.7,
+              wings: 1.7,
               total: 3.6
             }
           }, {
@@ -27,8 +27,20 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
             rating: {
               burger: 4.4,
               chips: 4.2,
-              wing: 4.3,
+              wings: 4.3,
               total: 4.2
+            }
+          },  {
+            name: "Edens Cottage",
+            location: {
+              latitude: 51.5642703,
+              longitude: -0.1073761
+            },
+            rating: {
+              burger: 4.5,
+              chips: 4,
+              wings: 5,
+              total: 4
             }
           }
         ]
@@ -51,13 +63,18 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
             var marker = new google.maps.Marker({
                 map: $scope.map,
                 position: new google.maps.LatLng(review.location.latitude, review.location.longitude),
-                title: review.name
+                title: review.name,
+                link: review.url
             });
-            marker.content = '<div class="infoWindowContent">' + review.name + '<br />' + review.location.latitude + ' E,' + review.location.longitude+  ' N, </div>';
+            marker.content = '<div class="infoWindowContent">' +
+                              "Burger: " + review.rating.burger + "<br />" +
+                              "Chips: " + review.rating.chips + "<br />" +
+                              "Wings: " + review.rating.wings + "<br />" +
+                              "Overall: " + review.rating.total;
 
             google.maps.event.addListener(marker, 'click', function(){
                 $scope.map.setCenter(marker.getPosition());
-                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+                infoWindow.setContent('<h2><a href="' marker.link + '">' + marker.title + '</a></h2>' + marker.content);
                 infoWindow.open($scope.map, marker);
             });
 
