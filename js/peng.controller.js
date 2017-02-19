@@ -74,7 +74,7 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
 
             google.maps.event.addListener(marker, 'click', function(){
                 $scope.map.setCenter(marker.getPosition());
-                infoWindow.setContent('<h2><a href="' marker.link + '">' + marker.title + '</a></h2>' + marker.content);
+                infoWindow.setContent('<h2>marker.title</h2>' + marker.content);
                 infoWindow.open($scope.map, marker);
             });
 
