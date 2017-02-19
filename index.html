@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)http://www.jasny.net/bootstrap/examples/navmenu-reveal/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,17 +15,14 @@
     <!-- Custom styles for this template -->
     <link href="css/navmenu-reveal.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
     <script src="js/angular.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
     <script src="js/peng.js"></script>
     <script src="js/peng.controller.js"></script>
 
@@ -38,14 +34,13 @@
     <div class="navmenu navmenu-default navmenu-fixed-left">
       <a class="navmenu-brand" href="#">Pengest Munch</a>
       <ul class="nav navmenu-nav">
-        <li ng-repeat="review in reviews"><a href="#">{{review.name}}</a></li>
+        <li ng-repeat="review in reviews" ng-click="selectMarker(review)" data-toggle="offcanvas" data-target=".navmenu" data-canvas=".canvas"><a href="#">{{review.name}}</a></li>
       </ul>
     </div>
 
     <div class="canvas" style="">
 
-      <div id="map" ></div>
-
+      <div id="map"></div>
 
       <div class="navbar navbar-default navbar-fixed-top" style="">
         <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
@@ -56,31 +51,11 @@
       </div>
 
       <div class="container">
-      <script>
-        function initMap() {
-          var uluru = {lat: 51.528308, lng: -0.3817765};
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: uluru,
-            mapTypeControl: false
-          });
-          var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-          });
-        }
-
-      </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIqSkFTvCEG40YwJeoeXSDtzAl8gbW5RU&callback=initMap">
-      </script>
 
       </div>
       <!-- /.container -->
 
-
     </div>
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

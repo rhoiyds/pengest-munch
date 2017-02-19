@@ -2,7 +2,6 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
 
     function($scope, $http) {
 
-
         //Variable to indicate whether to show the final summary page.
         $scope.text = "Hello world";
 
@@ -32,9 +31,54 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
               total: 4.2
             }
           }
-
-
         ]
 
+        var mapOptions = {
+            zoom: 10,
+            center: new google.maps.LatLng(51.5074,0.1278),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false
+        }
 
-}]);
+        $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        $scope.markers = [];
+
+        var infoWindow = new google.maps.InfoWindow();
+
+        var createMarker = function (review) {
+
+            var marker = new google.maps.Marker({
+                map: $scope.map,
+                position: new google.maps.LatLng(review.location.latitude, review.location.longitude),
+                title: review.name
+            });
+            marker.content = '<div class="infoWindowContent">' + review.name + '<br />' + review.location.latitiude + ' E,' + review.location.longitude+  ' N, </div>';
+
+            google.maps.event.addListener(marker, 'click', function(){
+                infoWindow.setContent('<h2>' + marker.title + '</h2>' +
+                  marker.content);
+                infoWindow.open($scope.map, marker);
+            });
+
+            review.marker = marker;
+            $scope.markers.push(marker);
+        }
+
+         $scope.selectMarker = function(review) {
+          console.log("Clickd");
+          infoWindow.setContent('<h2>' + review.marker.title + '</h2>' + review.marker.content);
+          infoWindow.open($scope.map, review.marker);
+        }
+
+        for (i = 0; i < $scope.reviews.length; i++){
+            createMarker($scope.reviews[i]);
+        }
+
+        $scope.openInfoWindow = function(e, selectedMarker){
+            e.preventDefault();
+          }
+
+        }
+
+]);
