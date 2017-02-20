@@ -150,6 +150,18 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
               wings: 4.6,
               total: 4
             }
+          } , {
+            name: "FFC",
+            location: {
+              latitude: 51.525135,
+              longitude: -0.0337925
+            },
+            rating: {
+              burger: 1.5,
+              chips: 2.4,
+              wings: 2,
+              total: 2
+            }
           }
         ]
 
