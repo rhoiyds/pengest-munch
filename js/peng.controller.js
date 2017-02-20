@@ -163,8 +163,8 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
         ]
 
         var mapOptions = {
-            zoom: 10,
-            center: new google.maps.LatLng(51.5074,0.1278),
+            zoom: 12,
+            center: new google.maps.LatLng(51.5074,-0.1278),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false
         }
