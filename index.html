@@ -37,10 +37,12 @@
     <div id="map"></div>
 
     <div id="site-menu">
-      <a href="#" class="toggle-nav" style="color: pink; font-size: 20px;"><i class="fa fa-times"></i></a>
-      <h2>Pengest Munch</h1>
-        <ul class="nav navmenu-nav">
-          <li ng-repeat="review in reviews" ng-click="selectMarker(review)" class="toggle-nav"><a href="#">{{review.name}}</a></li>
+      <h2 id="brand">Pengest Munch</h1>
+        <ul class="nav navmenu-nav review-list">
+          <li ng-repeat="review in reviews" ng-click="selectMarker(review)" class="toggle-nav">
+            <span class="review-name"> {{review.name}} </span>
+            <span class="review-score"> {{review.rating.total}} </span>
+        </li>
         </ul>
     </div>
 

@@ -73,8 +73,8 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
                               "Overall: " + review.rating.total;
 
             google.maps.event.addListener(marker, 'click', function(){
-                $scope.map.setCenter(marker.getPosition());
-                infoWindow.setContent('<h2>marker.title</h2>' + marker.content);
+                $scope.map.panTo(marker.getPosition());
+                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                 infoWindow.open($scope.map, marker);
             });
 
@@ -83,7 +83,7 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
         }
 
          $scope.selectMarker = function(review) {
-          $scope.map.setCenter(review.marker.getPosition());
+          $scope.map.panTo(review.marker.getPosition());
           infoWindow.setContent('<h2>' + review.marker.title + '</h2>' + review.marker.content);
           infoWindow.open($scope.map, review.marker);
         }

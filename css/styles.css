@@ -39,9 +39,15 @@
   height: 100%;
   position: absolute;
   top: 0;
-  left: -330px;
-  background: #428bca;
-  padding: 15px;
+  left: -300px;
+  background: #202020;
+}
+
+#brand {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  
 }
 
 #map {
@@ -69,4 +75,45 @@ html {
   position: absolute;
   top: 10px;
   left: 10px;
+  background-color: grey;
+  border: solid 1px black;
+  border-radius: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.review-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.review-list > li {
+  width: 280px;
+  height: 50px;
+  margin-top:2px;
+  margin-bottom: 2px;
+  background-color: #2d2d2d;
+  padding: 10px;
+}
+
+.review-list > li:hover {
+  background-color: #444444;
+}
+
+.review-name {
+  float: left;
+  line-height: 50px;
+  color: white;
+}
+
+.review-score {
+  float: right;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px;
+  text-align: center;
+  border-radius: 40px;
+  border: solid 2px white;
+  color: white;
 }
