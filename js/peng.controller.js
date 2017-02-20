@@ -2,6 +2,13 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
 
     function($scope, $http) {
 
+        $scope.labels =["Burger", "Wings", "Chips"];
+
+        $scope.data = [
+         [4,5,6],
+         [3,4,2]
+        ];
+
         //Variable to indicate whether to show the final summary page.
         $scope.text = "Hello world";
 
@@ -187,10 +194,8 @@ angular.module('pengApp').controller('pengestController', ['$scope', '$http',
                 link: review.url
             });
             marker.content = '<div class="infoWindowContent">' +
-                              "Burger: " + review.rating.burger + "<br />" +
-                              "Chips: " + review.rating.chips + "<br />" +
-                              "Wings: " + review.rating.wings + "<br />" +
-                              "Overall: " + review.rating.total;
+                              "<canvas id='radar' class='chart chart-radar'" +
+                              "chart-data='data' chart-options='options' chart-labels='labels'></canvas></div>";
 
             google.maps.event.addListener(marker, 'click', function(){
                 $scope.map.panTo(marker.getPosition());

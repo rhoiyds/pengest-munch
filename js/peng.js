@@ -1,1 +1,1 @@
-angular.module('pengApp', []);
+angular.module('pengApp', ['chart.js']);
