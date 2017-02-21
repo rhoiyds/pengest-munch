@@ -14,10 +14,17 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="js/Chart.js"></script>
+
+
     <script src="js/angular.min.js"></script>
+    <script src="js/angular-chart.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
-    <script src="js/peng.js"></script>
     <script src="js/peng.controller.js"></script>
+
+
+
+
 
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -30,11 +37,14 @@
 
 
 
-<div id="site-wrapper">
+<div id="site-wrapper" class="show-nav">
 
   <div id="site-canvas">
 
     <div id="map"></div>
+
+
+
 
     <div id="site-menu">
       <h2 id="brand">Pengest Munch</h1>
@@ -64,6 +74,7 @@
         $('.toggle-nav').click(function() {
             // Calling a function in case you want to expand upon this.
             toggleNav();
+
         });
 
 
@@ -82,7 +93,6 @@
             $('#site-wrapper').addClass('show-nav');
         }
 
-        //$('#site-wrapper').toggleClass('show-nav');
     }
     </script>
 
