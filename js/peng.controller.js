@@ -184,13 +184,12 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
                 link: review.url
             });
             marker.content = '<div class="infoWindowContent">' +
-                              "<canvas id='myChart' width='400' height='400'></canvas></div>";
-
-
+                              //'<span> 35 Toynbee St, London E1 7NE, UK </span>' +
+                              "<canvas id='myChart' width='250' height='300'></canvas></div>";
 
             google.maps.event.addListener(marker, 'click', function(){
                 $scope.map.panTo(marker.getPosition());
-                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+                infoWindow.setContent('<h2 class="info-header">' + marker.title + '</h2>' + marker.content);
                 infoWindow.open($scope.map, marker);
                 review = null;
                 for (i = 0; i < $scope.reviews.length; i++){
@@ -207,7 +206,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
 
          $scope.selectMarker = function(review) {
           $scope.map.panTo(review.marker.getPosition());
-          infoWindow.setContent('<h2>' + review.marker.title + '</h2>' + review.marker.content);
+          infoWindow.setContent('<h2 class="info-header">' + review.marker.title + '</h2>' + review.marker.content);
           infoWindow.open($scope.map, review.marker);
           $scope.showChart(review);
         }
