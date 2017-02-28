@@ -5,6 +5,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
       $scope.reviews = [
           {
             name: "Chicken Run",
+            address: "35 Toynbee St, London E1 7NE, UK",
             location: {
               latitude: 51.5171559,
               longitude:-0.0741484
@@ -17,6 +18,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           }, {
             name: "Miami Fried Chicken",
+            address: "130 Cherry Orchard Rd, Croydon CR0 6BB, UK",
             location: {
               latitude: 51.3795214,
               longitude:-0.0879298
@@ -29,9 +31,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           },  {
             name: "Edens Cottage",
+            address: "264 Seven Sisters Rd, London N4 2HY, UK",
             location: {
               latitude: 51.5642703,
-              longitude: -0.1073761
+              longitude: -0.1051874
             },
             rating: {
               burger: 4.5,
@@ -41,9 +44,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           }, {
             name: "Taste of Tennessee",
+            address: "29 Pitfield St, London N1 6HB, UK",
             location: {
               latitude: 51.527163,
-              longitude: -0.083739
+              longitude: -0.083757
             },
             rating: {
               burger: 3,
@@ -53,9 +57,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           }, {
             name: "Dixy",
+            address: "171 Fortess Road, Tufnell Park, London NW5 2HR",
             location: {
-              latitude: 51.5561328,
-              longitude: -0.1390873
+              latitude: 51.5561239,
+              longitude: -0.2091102
             },
             rating: {
               burger: 3,
@@ -65,9 +70,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           } , {
             name: "Dallas",
+            address: "25 York Rd, Lambeth, London SE1 7NJ, UK",
             location: {
-              latitude: 51.5036952,
-              longitude: -0.1150325
+              latitude: 51.5036464,
+              longitude: -0.1849548
             },
             rating: {
               burger: 4.6,
@@ -77,9 +83,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           } , {
             name: "Chicken Valley",
+            address: "340 Edgware Rd, Marylebone, London W2 1EA, UK",
             location: {
-              latitude: 51.52099119,
-              longitude: -0.1712288
+              latitude: 51.5210458,
+              longitude: -0.171081
             },
             rating: {
               burger: 1.2,
@@ -89,9 +96,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           } , {
             name: "Chick King",
+            address: "755 High Rd, London N17 8AH, UK",
             location: {
-              latitude: 51.6044748,
-              longitude: -0.0682239
+              latitude: 51.6044518,
+              longitude: -0.1382944
             },
             rating: {
               burger: 1.2,
@@ -101,9 +109,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           }, {
             name: "Sams Chicken",
+            address: "351 Ballards Ln, North Finchley, London N12 8LJ, UK",
             location: {
-              latitude: 51.613932,
-              longitude: -0.1769936
+              latitude: 51.6139392,
+              longitude: -0.1770187
             },
             rating: {
               burger: 3.8,
@@ -113,9 +122,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           } , {
             name: "Morleys",
+            address: "Thornton Rd, Thornton Heath CR7 6BB, UK",
             location: {
-              latitude: 51.398632,
-              longitude: -0.096530
+              latitude: 51.391598,
+              longitude: -0.1885294
             },
             rating: {
               burger: 4.2,
@@ -125,9 +135,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           }, {
             name: "Chicken Valley",
+            address: "232 Uxbridge Rd, Shepherd's Bush, London W12 7JD, UK",
             location: {
-              latitude: 51.5058768,
-              longitude: -0.2278134
+              latitude: 51.5058882,
+              longitude: -0.2278095
             },
             rating: {
               burger: 1.7,
@@ -137,9 +148,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           }, {
             name: "KRFC",
+            address: "65B St James St, Walthamstow, London E17 7PN, UK",
             location: {
-              latitude: 51.5058768,
-              longitude: -0.032140
+              latitude: 51.5799283,
+              longitude: -0.0321705
             },
             rating: {
               burger: 3.3,
@@ -149,9 +161,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
             }
           } , {
             name: "FFC",
+            address: "572 Mile End Rd, London E3 4PH, UK",
             location: {
-              latitude: 51.525135,
-              longitude: -0.0337925
+              latitude: 51.5251039,
+              longitude: -0.033708
             },
             rating: {
               burger: 1.5,
@@ -181,10 +194,10 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
                 map: $scope.map,
                 position: new google.maps.LatLng(review.location.latitude, review.location.longitude),
                 title: review.name,
-                link: review.url
+                review: review
             });
             marker.content = '<div class="infoWindowContent">' +
-                              //'<span> 35 Toynbee St, London E1 7NE, UK </span>' +
+                              '<span> ' + marker.review.address + ' </span>' +
                               "<canvas id='myChart' width='250' height='300'></canvas></div>";
 
             google.maps.event.addListener(marker, 'click', function(){
