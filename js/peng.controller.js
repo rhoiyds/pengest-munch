@@ -6,6 +6,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           {
             name: "Chicken Run",
             address: "35 Toynbee St, London E1 7NE, UK",
+            url: "https://www.youtube.com/watch?v=_M50Fw6T7cU",
             location: {
               latitude: 51.5171559,
               longitude:-0.0741484
@@ -19,6 +20,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           }, {
             name: "Miami Fried Chicken",
             address: "130 Cherry Orchard Rd, Croydon CR0 6BB, UK",
+            url: "https://www.youtube.com/watch?v=jIYjGNq9zO8",
             location: {
               latitude: 51.3795214,
               longitude:-0.0879298
@@ -32,6 +34,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           },  {
             name: "Edens Cottage",
             address: "264 Seven Sisters Rd, London N4 2HY, UK",
+            url: "https://www.youtube.com/watch?v=4HMwVMP_ZyM",
             location: {
               latitude: 51.5642703,
               longitude: -0.1051874
@@ -45,6 +48,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           }, {
             name: "Taste of Tennessee",
             address: "29 Pitfield St, London N1 6HB, UK",
+            url: "https://www.youtube.com/watch?v=naSO2wMopoU",
             location: {
               latitude: 51.527163,
               longitude: -0.083757
@@ -58,6 +62,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           }, {
             name: "Dixy",
             address: "171 Fortess Road, Tufnell Park, London NW5 2HR",
+            url: "https://www.youtube.com/watch?v=QTmxPWW4Tls",
             location: {
               latitude: 51.5561239,
               longitude: -0.2091102
@@ -71,6 +76,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           } , {
             name: "Dallas",
             address: "25 York Rd, Lambeth, London SE1 7NJ, UK",
+            url: "https://www.youtube.com/watch?v=6E6oFrh4CCw",
             location: {
               latitude: 51.5036464,
               longitude: -0.1849548
@@ -82,8 +88,9 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
               total: 4.5
             }
           } , {
-            name: "Chicken Valley",
+            name: "Chicken Valley (Edgeware)",
             address: "340 Edgware Rd, Marylebone, London W2 1EA, UK",
+            url: "https://www.youtube.com/watch?v=-k1VKS4VD20&",
             location: {
               latitude: 51.5210458,
               longitude: -0.171081
@@ -97,6 +104,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           } , {
             name: "Chick King",
             address: "755 High Rd, London N17 8AH, UK",
+            url: "https://www.youtube.com/watch?v=C0_1g5FVYAc&",
             location: {
               latitude: 51.6044518,
               longitude: -0.1382944
@@ -110,6 +118,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           }, {
             name: "Sams Chicken",
             address: "351 Ballards Ln, North Finchley, London N12 8LJ, UK",
+            url: "https://www.youtube.com/watch?v=6lXumCFCVBk",
             location: {
               latitude: 51.6139392,
               longitude: -0.1770187
@@ -123,6 +132,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           } , {
             name: "Morleys",
             address: "Thornton Rd, Thornton Heath CR7 6BB, UK",
+            url: "https://www.youtube.com/watch?v=vEAKppFiA1Q&",
             location: {
               latitude: 51.391598,
               longitude: -0.1885294
@@ -134,8 +144,9 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
               total: 4.3
             }
           }, {
-            name: "Chicken Valley",
+            name: "Chicken Valley (Sheperds)",
             address: "232 Uxbridge Rd, Shepherd's Bush, London W12 7JD, UK",
+            url: "https://www.youtube.com/watch?v=tpKviOimN6s&",
             location: {
               latitude: 51.5058882,
               longitude: -0.2278095
@@ -149,6 +160,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           }, {
             name: "KRFC",
             address: "65B St James St, Walthamstow, London E17 7PN, UK",
+            url: "https://www.youtube.com/watch?v=yJjK9QY2WuE",
             location: {
               latitude: 51.5799283,
               longitude: -0.0321705
@@ -162,6 +174,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
           } , {
             name: "FFC",
             address: "572 Mile End Rd, London E3 4PH, UK",
+            url: "https://www.youtube.com/watch?v=jIMn3bzKBNk",
             location: {
               latitude: 51.5251039,
               longitude: -0.033708
@@ -202,7 +215,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
 
             google.maps.event.addListener(marker, 'click', function(){
                 $scope.map.panTo(marker.getPosition());
-                infoWindow.setContent('<h2 class="info-header">' + marker.title + '</h2>' + marker.content);
+                infoWindow.setContent('<a class="link" target="_blank" href="' + marker.review.url + '"><h2 class="info-header">' + marker.title + '</h2></a>' + marker.content);
                 infoWindow.open($scope.map, marker);
                 review = null;
                 for (i = 0; i < $scope.reviews.length; i++){
@@ -219,7 +232,7 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
 
          $scope.selectMarker = function(review) {
           $scope.map.panTo(review.marker.getPosition());
-          infoWindow.setContent('<h2 class="info-header">' + review.marker.title + '</h2>' + review.marker.content);
+          infoWindow.setContent('<a class="link" target="_blank" href="' + review.url + '"><h2 class="info-header">' + review.marker.title + '</h2></a>' + review.marker.content);
           infoWindow.open($scope.map, review.marker);
           $scope.showChart(review);
         }
