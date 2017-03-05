@@ -185,6 +185,48 @@ angular.module('pengApp', ["chart.js"]).controller('pengestController', ['$scope
               wings: 2,
               total: 2
             }
+          } , {
+            name: "Texas Chicken & Burgers",
+            address: "2144 Frederick Douglass Blvd, New York, NY 10026, USA",
+            url: "https://www.youtube.com/watch?v=GFvldMhqFBk",
+            location: {
+              latitude: 40.8042034,
+              longitude: -73.9552949
+            },
+            rating: {
+              burger: 4.5,
+              chips: 4.2,
+              wings: 3.9,
+              total: 4.2
+            }
+          }, {
+            name: "Kennedy Fried Chicken",
+            address: "2280 Jerome Ave, Bronx, NY 10453, USA",
+            url: "https://www.youtube.com/watch?v=GFvldMhqFBk&t=221s",
+            location: {
+              latitude: 40.8585287,
+              longitude: -73.9035272
+            },
+            rating: {
+              burger: 1.5,
+              chips: 3.2,
+              wings: 1.9,
+              total: 2
+            }
+          } , {
+            name: "Crown Fried Chicken",
+            address: "822 Myrtle Ave, Brooklyn, NY 11206, USA",
+            url: "https://www.youtube.com/watch?v=GFvldMhqFBk&t=364s",
+            location: {
+              latitude: 40.6951902,
+              longitude: -73.949444
+            },
+            rating: {
+              burger: 3.2,
+              chips: 3.2,
+              wings: 2.2,
+              total: 2.4
+            }
           }
         ]
 
