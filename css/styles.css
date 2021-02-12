@@ -45,7 +45,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
-#brand {
+.brand {
   color: white;
   text-align: center;
   text-transform: uppercase;
